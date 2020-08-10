@@ -1,0 +1,26 @@
+{
+    "name": "antonowano/yandex-taxi-api",
+    "description": "Provide Yandex Taxi API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Antonov",
+            "email": "antonowano@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tests\\Antonowano\\ApiYandexTaxi\\": "tests/",
+            "Antonowano\\ApiYandexTaxi\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.2"
+    }
+}
