@@ -5,7 +5,7 @@
 ## Installation
 
 ```text
-composer require antonowano/yandex-taxi-api-v7
+composer require antonowano/yandex-taxi-api
 ```
 
 ## Usage API v7
