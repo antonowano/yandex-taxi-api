@@ -58,6 +58,50 @@ class ApiV7
         ], $body));
     }
 
+    public function getDriverTransactionList(array $body): ?array
+    {
+        return $this->request('POST', '/v2/parks/driver-profiles/transactions/list', array_replace_recursive([
+            'query' => [
+                'park' => [
+                    'id' => $this->parkId,
+                ],
+            ],
+        ], $body));
+    }
+
+    public function getOrderTransactionList(array $body): ?array
+    {
+        return $this->request('POST', '/v2/parks/orders/transactions/list', array_replace_recursive([
+            'query' => [
+                'park' => [
+                    'id' => $this->parkId,
+                ],
+            ],
+        ], $body));
+    }
+
+    public function getParkTransactionList(array $body): ?array
+    {
+        return $this->request('POST', '/v2/parks/transactions/list', array_replace_recursive([
+            'query' => [
+                'park' => [
+                    'id' => $this->parkId,
+                ],
+            ],
+        ], $body));
+    }
+
+    public function getTransactionCategoryList(array $body): ?array
+    {
+        return $this->request('POST', '/v2/parks/transactions/categories/list', array_replace_recursive([
+            'query' => [
+                'park' => [
+                    'id' => $this->parkId,
+                ],
+            ],
+        ], $body));
+    }
+
     public function request(string $method, string $url, array $body): ?array
     {
         $client = new Client();
