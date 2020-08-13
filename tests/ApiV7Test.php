@@ -96,14 +96,14 @@ class ApiV7Test extends TestCase
 
         if ($this->api->getStatusCode() != 200) {
             $this->fail('Status code is not 200' . PHP_EOL . 'Message: ' . $response['message']);
-            return null;
+            return;
         }
 
         if (!isset($response['orders'])
             || !is_array($response['orders'])
             || count($response['orders']) != $countOrders) {
             $this->fail('The number of orders must be ' . $countOrders);
-            return null;
+            return;
         }
 
         foreach ($response['orders'] as $order) {

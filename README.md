@@ -1,14 +1,44 @@
-# Yandex Taxi API v7
+# Yandex Taxi API
 
-[Documentation](https://fleet.taxi.yandex.ru/api/docs/)
-
-## Installation
+### Installation
 
 ```text
 composer require antonowano/yandex-taxi-api
 ```
 
-## Usage API v7
+## API v6
+
+[Documentation](https://yadi.sk/i/dgsb8oSsuTnOpA)
+
+### Example
+
+```php
+use Antonowano\ApiYandexTaxi\ApiV6;
+
+$apiKey = 'e921c69caf41620fef42693674b46b76';
+$api = new ApiV6($apiKey);
+
+$response = $api->getDriverList();
+
+if ($api->getStatusCode() != 200) {
+    throw new \Exception($response['message']);
+}
+
+foreach ($response['drivers'] as $driverId => $driver) {
+    echo 'Driver id: ' . $driverId . PHP_EOL;
+    echo 'First name: ' . $driver['FirstName'] . PHP_EOL;
+    echo 'Last name: ' . $driver['LastName'] . PHP_EOL;
+    echo 'Surname: ' . $driver['Surname'] . PHP_EOL;
+    echo 'Phone: ' . $driver['Phones'] . PHP_EOL;
+    echo PHP_EOL;
+}
+```
+
+## API v7
+
+[Documentation](https://fleet.taxi.yandex.ru/api/docs/)
+
+### Example
 
 ```php
 use Antonowano\ApiYandexTaxi\ApiV7;
