@@ -118,6 +118,7 @@ class ApiV7
                 'X-Client-ID' => $this->clientId,
                 'X-API-Key' => $this->apiKey,
                 'Accept-Language' => $this->language,
+                'X-Idempotency-Token' => uniqid('', true),
             ],
             'http_errors' => false
         ]);
