@@ -58,6 +58,13 @@ class ApiV7
         ], $body));
     }
 
+    public function createDriverTransaction(array $body): ?array
+    {
+        return $this->request('POST', '/v2/parks/driver-profiles/transactions', array_replace_recursive([
+            'park_id' => $this->parkId,
+        ], $body));
+    }
+
     public function getDriverTransactionList(array $body): ?array
     {
         return $this->request('POST', '/v2/parks/driver-profiles/transactions/list', array_replace_recursive([
