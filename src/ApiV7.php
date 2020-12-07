@@ -6,7 +6,8 @@ use GuzzleHttp\Client;
 
 class ApiV7
 {
-    private const BASE_URL = 'https://fleet-api.taxi.yandex.net';
+    /** @var string */
+    private $baseUrl = 'https://fleet-api.taxi.yandex.net';
 
     /** @var string */
     private $clientId;
@@ -29,6 +30,11 @@ class ApiV7
         $this->parkId = $parkId;
         $this->apiKey = $apiKey;
         $this->language = $language;
+    }
+
+    public function useDaemon(int $port = 3000, string $host = '127.0.0.1')
+    {
+        $this->baseUrl = 'http://' . $host . ':' . $port;
     }
 
     public function getStatusCode(): ?int
@@ -112,7 +118,7 @@ class ApiV7
     public function request(string $method, string $url, array $body): ?array
     {
         $client = new Client();
-        $response = $client->request($method, self::BASE_URL . $url, [
+        $response = $client->request($method, $this->baseUrl . $url, [
             'json' => $body,
             'headers' => [
                 'X-Client-ID' => $this->clientId,

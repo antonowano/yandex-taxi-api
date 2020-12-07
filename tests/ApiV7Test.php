@@ -19,6 +19,7 @@ class ApiV7Test extends TestCase
     public function setUp(): void
     {
         $this->api = new ApiV7(self::CLIENT_ID, self::PARK_ID, self::API_KEY);
+        $this->api->useDaemon();
     }
 
     public function testDriverProfileList()

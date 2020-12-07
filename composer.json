@@ -9,6 +9,7 @@
             "email": "antonowano@gmail.com"
         }
     ],
+    "bin": ["bin/yandex-taxi-api-daemon.js"],
     "autoload": {
         "psr-4": {
             "Tests\\Antonowano\\ApiYandexTaxi\\": "tests/",
